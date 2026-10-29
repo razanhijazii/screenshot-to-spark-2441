@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Components get data only via src/services/api.ts (never import src/data directly); it will be swapped for a Python backend API.
