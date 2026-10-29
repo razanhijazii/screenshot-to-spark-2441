@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DemandRouteImport } from './routes/demand'
+import { Route as MultiwayRouteImport } from './routes/multiway'
+import { Route as TrendsRouteImport } from './routes/trends'
+import { Route as BriefsIndexRouteImport } from './routes/briefs.index'
+import { Route as BriefsIdRouteImport } from './routes/briefs.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemandRoute = DemandRouteImport.update({
+  id: '/demand',
+  path: '/demand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MultiwayRoute = MultiwayRouteImport.update({
+  id: '/multiway',
+  path: '/multiway',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrendsRoute = TrendsRouteImport.update({
+  id: '/trends',
+  path: '/trends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BriefsIndexRoute = BriefsIndexRouteImport.update({
+  id: '/briefs/',
+  path: '/briefs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BriefsIdRoute = BriefsIdRouteImport.update({
+  id: '/briefs/$id',
+  path: '/briefs/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/demand': typeof DemandRoute
+  '/multiway': typeof MultiwayRoute
+  '/trends': typeof TrendsRoute
+  '/briefs/$id': typeof BriefsIdRoute
+  '/briefs/': typeof BriefsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/demand': typeof DemandRoute
+  '/multiway': typeof MultiwayRoute
+  '/trends': typeof TrendsRoute
+  '/briefs/$id': typeof BriefsIdRoute
+  '/briefs': typeof BriefsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/demand': typeof DemandRoute
+  '/multiway': typeof MultiwayRoute
+  '/trends': typeof TrendsRoute
+  '/briefs/$id': typeof BriefsIdRoute
+  '/briefs/': typeof BriefsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/demand' | '/multiway' | '/trends' | '/briefs/$id' | '/briefs/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/demand' | '/multiway' | '/trends' | '/briefs/$id' | '/briefs'
+  id:
+    | '__root__'
+    | '/'
+    | '/demand'
+    | '/multiway'
+    | '/trends'
+    | '/briefs/$id'
+    | '/briefs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DemandRoute: typeof DemandRoute
+  MultiwayRoute: typeof MultiwayRoute
+  TrendsRoute: typeof TrendsRoute
+  BriefsIdRoute: typeof BriefsIdRoute
+  BriefsIndexRoute: typeof BriefsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demand': {
+      id: '/demand'
+      path: '/demand'
+      fullPath: '/demand'
+      preLoaderRoute: typeof DemandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/multiway': {
+      id: '/multiway'
+      path: '/multiway'
+      fullPath: '/multiway'
+      preLoaderRoute: typeof MultiwayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trends': {
+      id: '/trends'
+      path: '/trends'
+      fullPath: '/trends'
+      preLoaderRoute: typeof TrendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/briefs/': {
+      id: '/briefs/'
+      path: '/briefs'
+      fullPath: '/briefs/'
+      preLoaderRoute: typeof BriefsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/briefs/$id': {
+      id: '/briefs/$id'
+      path: '/briefs/$id'
+      fullPath: '/briefs/$id'
+      preLoaderRoute: typeof BriefsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DemandRoute: DemandRoute,
+  MultiwayRoute: MultiwayRoute,
+  TrendsRoute: TrendsRoute,
+  BriefsIdRoute: BriefsIdRoute,
+  BriefsIndexRoute: BriefsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
