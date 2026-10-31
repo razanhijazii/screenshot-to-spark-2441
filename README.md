@@ -1,24 +1,30 @@
-# H&M Design & Demand Intelligence
+# H&M Design & Demand Intelligence: dashboard
 
-Implement exactly the screenshot and nothing else
+The front end for [hm-design-intelligence](https://github.com/razanhijazii/hm-design-intelligence), a decision tool that tells fashion designers **what to design, why, and how many to make**.
 
-This project was built with [Lovable](https://lovable.dev).
+**Live demo:** https://hm-design-intelligence-frontend.lovable.app
 
-## Build with Lovable
+## What it shows
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/6a297b57-f6f1-40b1-bfb3-c6f0344937c9).
+- **Overview:** rising trends, active briefs, recommended units and average confidence for the season.
+- **Trend signals:** which colours, silhouettes, details and fabrics are rising, peaking or fading.
+- **Design briefs:** 12 recommended pieces, each a simple base with one signature detail and the data-backed reasons behind it.
+- **Multiway and sustainable:** convertible pieces with step-by-step conversions, and sustainable material choices.
+- **Demand and stock:** a weekly forecast per brief and a newsvendor order quantity from simulated demand, with launch window, size split and stock risk.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## How the data gets here
 
-## Development
+The pages open instantly from a bundled snapshot of the engine's output (`src/data`). In the browser the app then fetches the same data from the live Python API at `https://hm-design-intelligence.onrender.com` and replaces the snapshot. The free server can take up to a minute to wake up, so a status line in the sidebar says which data is on screen. Components only read data through `src/services/api.ts`.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Set `VITE_API_URL` to point the dashboard at a different backend.
+
+## Run locally
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+Built with TanStack Start, React, TypeScript, Tailwind and Recharts.
+
+> Independent concept project, not affiliated with H&M. All data is synthetic.
