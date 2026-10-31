@@ -1,132 +1,286 @@
+// Real output of the H&M design & demand engine (github.com/razanhijazii/hm-design-intelligence).
+// Bundled so the site opens instantly; the live API refreshes it in the background. Synthetic demo data.
 import type { Trend } from "@/types/models";
 
 export const trends: Trend[] = [
   {
-    id: "t-butter-yellow",
-    name: "Butter yellow",
-    category: "colour",
-    momentum: 78,
-    status: "rising",
-    evidence: [
-      "Search volume for 'butter yellow dress' up 212% YoY across EU markets",
-      "Featured in 14 SS runway collections (vs 3 last season)",
-      "TikTok #butteryellow mentions up 4.1x in 8 weeks",
-      "Own pastel tops sell-through 18% above category average",
+    "id": "trend-cherry-red",
+    "name": "Cherry red",
+    "category": "colour",
+    "momentum": 38,
+    "status": "rising",
+    "evidence": [
+      "Search interest +35% over the last 4 weeks vs the 8 weeks before (now 69/100).",
+      "Social mentions +25% over the same period; social has been leading search by about 3 weeks.",
+      "111 editorial and runway mentions in the last 4 weeks, vs 84 in the 4 weeks before.",
+      "Projected to keep building through the 12-week design-to-store lead time (index 74 now, about 89 at launch).",
+      "In the sales history, pieces in cherry red sold 0.99× their category average and were rated 3.8/5 (14 products)."
     ],
-    weeklyScores: [22, 26, 31, 35, 40, 44, 52, 58, 63, 70, 74, 78],
+    "weeklyScores": [
+      43,
+      50,
+      50,
+      60,
+      54,
+      59,
+      68,
+      65,
+      69,
+      72,
+      78,
+      77
+    ]
   },
   {
-    id: "t-drop-waist",
-    name: "Drop-waist silhouette",
-    category: "silhouette",
-    momentum: 64,
-    status: "rising",
-    evidence: [
-      "Pinterest saves for 'drop waist dress' up 140% in 3 months",
-      "Adopted by 6 of top 10 tracked fashion influencers",
-      "Competitor drop-waist SKUs selling out within 3 weeks",
+    "id": "trend-chocolate-brown",
+    "name": "Chocolate brown",
+    "category": "colour",
+    "momentum": -2,
+    "status": "peaking",
+    "evidence": [
+      "Search interest −6% over the last 4 weeks vs the 8 weeks before (now 74/100).",
+      "Social mentions −3% over the same period.",
+      "104 editorial and runway mentions in the last 4 weeks, vs 80 in the 4 weeks before.",
+      "At a plateau near its two-year high of 90; projected to hold by launch (about 78).",
+      "In the sales history, pieces in chocolate brown sold 1.04× their category average and were rated 3.8/5 (27 products)."
     ],
-    weeklyScores: [18, 20, 24, 27, 33, 38, 41, 47, 52, 55, 60, 64],
+    "weeklyScores": [
+      83,
+      85,
+      85,
+      82,
+      81,
+      79,
+      78,
+      80,
+      83,
+      77,
+      80,
+      80
+    ]
   },
   {
-    id: "t-corset-lace",
-    name: "Corset lace-up backs",
-    category: "detail",
-    momentum: 41,
-    status: "peaking",
-    evidence: [
-      "Social mentions plateaued at high volume for 5 weeks",
-      "Strong conversion on own lace-up tops (4.6% vs 3.1% avg)",
-      "Runway presence stable, no longer growing",
+    "id": "trend-powder-blue",
+    "name": "Powder blue",
+    "category": "colour",
+    "momentum": 30,
+    "status": "rising",
+    "evidence": [
+      "Search interest +26% over the last 4 weeks vs the 8 weeks before (now 51/100).",
+      "Social mentions +26% over the same period.",
+      "72 editorial and runway mentions in the last 4 weeks, vs 67 in the 4 weeks before.",
+      "Projected to keep building through the 12-week design-to-store lead time (index 57 now, about 67 at launch).",
+      "In the sales history, pieces in powder blue sold 1.00× their category average and were rated 3.8/5 (15 products)."
     ],
-    weeklyScores: [30, 38, 45, 52, 58, 61, 62, 61, 60, 58, 57, 56],
+    "weeklyScores": [
+      40,
+      38,
+      46,
+      44,
+      47,
+      47,
+      51,
+      56,
+      57,
+      54,
+      59,
+      59
+    ]
   },
   {
-    id: "t-barrel-leg",
-    name: "Barrel-leg denim",
-    category: "silhouette",
-    momentum: 71,
-    status: "rising",
-    evidence: [
-      "'Barrel jeans' search up 3x YoY, overtaking 'wide leg' in UK & DE",
-      "Denim forums cite barrel as the next post-wide-leg fit",
-      "Returns on test batch 9% below denim average",
+    "id": "trend-drop-waist",
+    "name": "Drop-waist silhouette",
+    "category": "silhouette",
+    "momentum": 25,
+    "status": "rising",
+    "evidence": [
+      "Search interest +25% over the last 4 weeks vs the 8 weeks before (now 65/100).",
+      "Social mentions +21% over the same period.",
+      "91 editorial and runway mentions in the last 4 weeks, vs 103 in the 4 weeks before.",
+      "Projected to keep building through the 12-week design-to-store lead time (index 70 now, about 78 at launch).",
+      "In the sales history, pieces with a drop-waist cut sold 1.07× their category average and were rated 3.8/5 (5 products)."
     ],
-    weeklyScores: [15, 19, 24, 30, 34, 41, 47, 52, 58, 63, 68, 71],
+    "weeklyScores": [
+      45,
+      49,
+      54,
+      58,
+      62,
+      63,
+      68,
+      61,
+      67,
+      69,
+      68,
+      74
+    ]
   },
   {
-    id: "t-sheer-layers",
-    name: "Sheer layering",
-    category: "fabric",
-    momentum: 33,
-    status: "peaking",
-    evidence: [
-      "Search interest high but flat for 6 weeks",
-      "Strong in evening & occasion categories only",
+    "id": "trend-barrel-leg",
+    "name": "Barrel-leg shape",
+    "category": "silhouette",
+    "momentum": -4,
+    "status": "peaking",
+    "evidence": [
+      "Search interest −3% over the last 4 weeks vs the 8 weeks before (now 77/100).",
+      "Social mentions −2% over the same period; social has been leading search by about 3 weeks.",
+      "88 editorial and runway mentions in the last 4 weeks, vs 91 in the 4 weeks before.",
+      "At a plateau near its two-year high of 96; projected to hold by launch (about 79).",
+      "In the sales history, pieces with a barrel leg sold 1.04× their category average and were rated 3.9/5 (7 products)."
     ],
-    weeklyScores: [40, 46, 52, 57, 60, 62, 63, 62, 62, 61, 60, 60],
+    "weeklyScores": [
+      86,
+      81,
+      86,
+      89,
+      82,
+      84,
+      79,
+      84,
+      83,
+      81,
+      83,
+      79
+    ]
   },
   {
-    id: "t-chocolate-brown",
-    name: "Chocolate brown",
-    category: "colour",
-    momentum: 12,
-    status: "peaking",
-    evidence: [
-      "Two seasons of high demand; still converting but growth slowing",
-      "Remains a top-3 neutral in own sales data",
+    "id": "trend-bubble-hem",
+    "name": "Bubble hem",
+    "category": "silhouette",
+    "momentum": -24,
+    "status": "fading",
+    "evidence": [
+      "Search interest −19% over the last 4 weeks vs the 8 weeks before (now 32/100).",
+      "Social mentions −17% over the same period; social has been leading search by about 3 weeks.",
+      "34 editorial and runway mentions in the last 4 weeks, vs 42 in the 4 weeks before.",
+      "Down 59% from its peak in April 2026; projected at about 26 by launch.",
+      "In the sales history, pieces with a bubble hem sold 1.03× their category average and were rated 3.8/5 (7 products)."
     ],
-    weeklyScores: [70, 71, 72, 72, 71, 70, 69, 68, 67, 66, 66, 65],
+    "weeklyScores": [
+      50,
+      44,
+      47,
+      45,
+      43,
+      38,
+      41,
+      33,
+      35,
+      35,
+      32,
+      34
+    ]
   },
   {
-    id: "t-bow-detail",
-    name: "Tiny bow details",
-    category: "detail",
-    momentum: 55,
-    status: "rising",
-    evidence: [
-      "Mentions of 'bow detail' up 96% on Instagram in 10 weeks",
-      "Small-scale trims test well with 18–28 segment in surveys",
-      "Low-cost trim: adds perceived value at <$0.40 per unit",
+    "id": "trend-exposed-lacing",
+    "name": "Exposed lacing",
+    "category": "detail",
+    "momentum": 50,
+    "status": "rising",
+    "evidence": [
+      "Search interest +45% over the last 4 weeks vs the 8 weeks before (now 63/100).",
+      "Social mentions +37% over the same period.",
+      "99 editorial and runway mentions in the last 4 weeks, vs 77 in the 4 weeks before.",
+      "Projected to keep building through the 12-week design-to-store lead time (index 67 now, about 82 at launch).",
+      "In the sales history, pieces with exposed lacing sold 0.89× their category average and were rated 3.8/5 (7 products)."
     ],
-    weeklyScores: [20, 22, 25, 29, 32, 36, 40, 43, 47, 50, 52, 55],
+    "weeklyScores": [
+      39,
+      37,
+      44,
+      47,
+      48,
+      49,
+      58,
+      54,
+      62,
+      62,
+      68,
+      74
+    ]
   },
   {
-    id: "t-deadstock-linen",
-    name: "Recycled & deadstock linen",
-    category: "fabric",
-    momentum: 59,
-    status: "rising",
-    evidence: [
-      "'Sustainable linen' search up 88% YoY",
-      "Customer survey: 62% would pay +$5 for recycled fibres",
-      "EU textile regulation pushing recycled-content labelling",
+    "id": "trend-scarf-ties",
+    "name": "Scarf ties and bows",
+    "category": "detail",
+    "momentum": 26,
+    "status": "rising",
+    "evidence": [
+      "Search interest +22% over the last 4 weeks vs the 8 weeks before (now 69/100).",
+      "Social mentions +14% over the same period; social has been leading search by about 2 weeks.",
+      "99 editorial and runway mentions in the last 4 weeks, vs 74 in the 4 weeks before.",
+      "Projected to keep building through the 12-week design-to-store lead time (index 74 now, about 84 at launch).",
+      "In the sales history, pieces with scarf ties sold 0.88× their category average and were rated 3.7/5 (13 products)."
     ],
-    weeklyScores: [25, 28, 31, 35, 38, 42, 45, 48, 51, 54, 57, 59],
+    "weeklyScores": [
+      59,
+      52,
+      58,
+      60,
+      65,
+      61,
+      65,
+      71,
+      73,
+      73,
+      76,
+      75
+    ]
   },
   {
-    id: "t-skinny-jeans",
-    name: "Ultra-skinny jeans",
-    category: "silhouette",
-    momentum: -62,
-    status: "fading",
-    evidence: [
-      "Search volume down 48% YoY",
-      "Own skinny sell-through down 21% for 3 consecutive seasons",
-      "Markdown rate 2x denim average",
+    "id": "trend-sheer-layers",
+    "name": "Sheer layering",
+    "category": "fabric",
+    "momentum": -2,
+    "status": "peaking",
+    "evidence": [
+      "Search interest +1% over the last 4 weeks vs the 8 weeks before (now 75/100).",
+      "Social mentions −4% over the same period; social has been leading search by about 1 week.",
+      "109 editorial and runway mentions in the last 4 weeks, vs 109 in the 4 weeks before.",
+      "At a plateau near its two-year high of 93; projected to hold by launch (about 82).",
+      "In the sales history, pieces in sheer fabric sold 1.07× their category average and were rated 3.8/5 (20 products)."
     ],
-    weeklyScores: [55, 52, 48, 45, 41, 38, 34, 30, 27, 24, 21, 18],
+    "weeklyScores": [
+      82,
+      87,
+      84,
+      86,
+      77,
+      80,
+      85,
+      83,
+      81,
+      83,
+      82,
+      81
+    ]
   },
   {
-    id: "t-neon-logo",
-    name: "Neon logo prints",
-    category: "detail",
-    momentum: -44,
-    status: "fading",
-    evidence: [
-      "Social engagement on logo-led posts down 37%",
-      "Shift toward 'quiet' design noted across all tracked markets",
+    "id": "trend-crinkle-texture",
+    "name": "Crinkle texture",
+    "category": "fabric",
+    "momentum": 21,
+    "status": "rising",
+    "evidence": [
+      "Search interest +16% over the last 4 weeks vs the 8 weeks before (now 60/100).",
+      "Social mentions +13% over the same period; social has been leading search by about 3 weeks.",
+      "94 editorial and runway mentions in the last 4 weeks, vs 80 in the 4 weeks before.",
+      "Projected to keep building through the 12-week design-to-store lead time (index 64 now, about 71 at launch).",
+      "In the sales history, pieces in a crinkle texture sold 0.97× their category average and were rated 3.8/5 (16 products)."
     ],
-    weeklyScores: [48, 46, 44, 42, 40, 37, 35, 33, 31, 29, 27, 25],
-  },
+    "weeklyScores": [
+      46,
+      52,
+      50,
+      54,
+      54,
+      60,
+      60,
+      60,
+      63,
+      65,
+      64,
+      63
+    ]
+  }
 ];

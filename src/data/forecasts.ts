@@ -1,45 +1,1338 @@
-import type { Forecast, StockRisk } from "@/types/models";
+// Real output of the H&M design & demand engine (github.com/razanhijazii/hm-design-intelligence).
+// Bundled so the site opens instantly; the live API refreshes it in the background. Synthetic demo data.
+import type { Forecast } from "@/types/models";
 
-function curve(peak: number, peakWeek: number, spread: number, seed: number) {
-  return Array.from({ length: 16 }, (_, i) => {
-    const base = peak * Math.exp(-((i - peakWeek) ** 2) / (2 * spread ** 2));
-    const noise = ((seed * (i + 3) * 7) % 11) - 5;
-    return { week: `W${i + 1}`, units: Math.max(0, Math.round(base + noise * peak * 0.01)) };
-  });
-}
-
-const split = (xs: number, s: number, m: number, l: number, xl: number) => [
-  { size: "XS", percent: xs },
-  { size: "S", percent: s },
-  { size: "M", percent: m },
-  { size: "L", percent: l },
-  { size: "XL", percent: xl },
+export const forecasts: Forecast[] = [
+  {
+    "briefId": "skirt-drop-waist-pleat--sheer-panel--cherry-red",
+    "weeklyDemand": [
+      {
+        "week": "2027-03-22",
+        "units": 315
+      },
+      {
+        "week": "2027-03-29",
+        "units": 580
+      },
+      {
+        "week": "2027-04-05",
+        "units": 620
+      },
+      {
+        "week": "2027-04-12",
+        "units": 640
+      },
+      {
+        "week": "2027-04-19",
+        "units": 655
+      },
+      {
+        "week": "2027-04-26",
+        "units": 675
+      },
+      {
+        "week": "2027-05-03",
+        "units": 690
+      },
+      {
+        "week": "2027-05-10",
+        "units": 690
+      },
+      {
+        "week": "2027-05-17",
+        "units": 685
+      },
+      {
+        "week": "2027-05-24",
+        "units": 610
+      },
+      {
+        "week": "2027-05-31",
+        "units": 590
+      },
+      {
+        "week": "2027-06-07",
+        "units": 530
+      },
+      {
+        "week": "2027-06-14",
+        "units": 470
+      },
+      {
+        "week": "2027-06-21",
+        "units": 425
+      },
+      {
+        "week": "2027-06-28",
+        "units": 410
+      },
+      {
+        "week": "2027-07-05",
+        "units": 380
+      }
+    ],
+    "recommendedUnits": 9750,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 9
+      },
+      {
+        "size": "S",
+        "percent": 25
+      },
+      {
+        "size": "M",
+        "percent": 32
+      },
+      {
+        "size": "L",
+        "percent": 23
+      },
+      {
+        "size": "XL",
+        "percent": 11
+      }
+    ],
+    "launchWindow": "Launch w/c 22 Mar 2027; selling window to July 2027",
+    "stockRisk": "medium",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 6,300 to 11,830 units (80% range). Ordering 9,750 covers demand in 69% of them, with about 1,410 units expected left for markdown. Sheer layering is at a plateau and leftover stock would clear at a deeper markdown, which pulls the order below the upper end of demand. Keep a re-order option open.",
+    "demandRange": {
+      "p10": 6300,
+      "p50": 8620,
+      "p90": 11830
+    },
+    "newsvendor": {
+      "criticalRatio": 0.69,
+      "underageCost": 16.8,
+      "overageCost": 7.56,
+      "markdownBasis": "peaking",
+      "stockoutProbability": 0.311,
+      "expectedSellThrough": 0.856,
+      "expectedLeftoverUnits": 1410,
+      "expectedProfit": 129552.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "dress-drop-waist-jersey--bow-straps--chocolate-brown",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 310
+      },
+      {
+        "week": "2027-01-25",
+        "units": 535
+      },
+      {
+        "week": "2027-02-01",
+        "units": 555
+      },
+      {
+        "week": "2027-02-08",
+        "units": 565
+      },
+      {
+        "week": "2027-02-15",
+        "units": 580
+      },
+      {
+        "week": "2027-02-22",
+        "units": 595
+      },
+      {
+        "week": "2027-03-01",
+        "units": 590
+      },
+      {
+        "week": "2027-03-08",
+        "units": 615
+      },
+      {
+        "week": "2027-03-15",
+        "units": 605
+      },
+      {
+        "week": "2027-03-22",
+        "units": 515
+      },
+      {
+        "week": "2027-03-29",
+        "units": 505
+      },
+      {
+        "week": "2027-04-05",
+        "units": 485
+      },
+      {
+        "week": "2027-04-12",
+        "units": 405
+      },
+      {
+        "week": "2027-04-19",
+        "units": 360
+      },
+      {
+        "week": "2027-04-26",
+        "units": 370
+      },
+      {
+        "week": "2027-05-03",
+        "units": 345
+      }
+    ],
+    "recommendedUnits": 8750,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 8
+      },
+      {
+        "size": "S",
+        "percent": 23
+      },
+      {
+        "size": "M",
+        "percent": 33
+      },
+      {
+        "size": "L",
+        "percent": 24
+      },
+      {
+        "size": "XL",
+        "percent": 12
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "medium",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 5,580 to 10,700 units (80% range). Ordering 8,750 covers demand in 69% of them, with about 1,290 units expected left for markdown. Chocolate brown is at a plateau and leftover stock would clear at a deeper markdown, which pulls the order below the upper end of demand. Keep a re-order option open.",
+    "demandRange": {
+      "p10": 5580,
+      "p50": 7700,
+      "p90": 10700
+    },
+    "newsvendor": {
+      "criticalRatio": 0.69,
+      "underageCost": 21.6,
+      "overageCost": 9.72,
+      "markdownBasis": "peaking",
+      "stockoutProbability": 0.307,
+      "expectedSellThrough": 0.853,
+      "expectedLeftoverUnits": 1290,
+      "expectedProfit": 148714.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "skirt-tube--scarf-tie--cherry-red",
+    "weeklyDemand": [
+      {
+        "week": "2027-03-22",
+        "units": 325
+      },
+      {
+        "week": "2027-03-29",
+        "units": 660
+      },
+      {
+        "week": "2027-04-05",
+        "units": 700
+      },
+      {
+        "week": "2027-04-12",
+        "units": 725
+      },
+      {
+        "week": "2027-04-19",
+        "units": 745
+      },
+      {
+        "week": "2027-04-26",
+        "units": 765
+      },
+      {
+        "week": "2027-05-03",
+        "units": 770
+      },
+      {
+        "week": "2027-05-10",
+        "units": 790
+      },
+      {
+        "week": "2027-05-17",
+        "units": 810
+      },
+      {
+        "week": "2027-05-24",
+        "units": 720
+      },
+      {
+        "week": "2027-05-31",
+        "units": 675
+      },
+      {
+        "week": "2027-06-07",
+        "units": 585
+      },
+      {
+        "week": "2027-06-14",
+        "units": 520
+      },
+      {
+        "week": "2027-06-21",
+        "units": 515
+      },
+      {
+        "week": "2027-06-28",
+        "units": 465
+      },
+      {
+        "week": "2027-07-05",
+        "units": 440
+      }
+    ],
+    "recommendedUnits": 11500,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 9
+      },
+      {
+        "size": "S",
+        "percent": 25
+      },
+      {
+        "size": "M",
+        "percent": 32
+      },
+      {
+        "size": "L",
+        "percent": 23
+      },
+      {
+        "size": "XL",
+        "percent": 11
+      }
+    ],
+    "launchWindow": "Launch w/c 22 Mar 2027; selling window to July 2027",
+    "stockRisk": "low",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 7,500 to 13,210 units (80% range). Ordering 11,500 covers demand in 75% of them, with about 1,760 units expected left for markdown. The linked trends are still building into launch, so the downside is mainly forecast error.",
+    "demandRange": {
+      "p10": 7500,
+      "p50": 9910,
+      "p90": 13210
+    },
+    "newsvendor": {
+      "criticalRatio": 0.75,
+      "underageCost": 15.6,
+      "overageCost": 5.2,
+      "markdownBasis": "rising",
+      "stockoutProbability": 0.251,
+      "expectedSellThrough": 0.847,
+      "expectedLeftoverUnits": 1760,
+      "expectedProfit": 142766.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "jeans-barrel--scarf-tie--chocolate-brown",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 360
+      },
+      {
+        "week": "2027-01-25",
+        "units": 560
+      },
+      {
+        "week": "2027-02-01",
+        "units": 615
+      },
+      {
+        "week": "2027-02-08",
+        "units": 625
+      },
+      {
+        "week": "2027-02-15",
+        "units": 630
+      },
+      {
+        "week": "2027-02-22",
+        "units": 625
+      },
+      {
+        "week": "2027-03-01",
+        "units": 625
+      },
+      {
+        "week": "2027-03-08",
+        "units": 625
+      },
+      {
+        "week": "2027-03-15",
+        "units": 610
+      },
+      {
+        "week": "2027-03-22",
+        "units": 515
+      },
+      {
+        "week": "2027-03-29",
+        "units": 505
+      },
+      {
+        "week": "2027-04-05",
+        "units": 485
+      },
+      {
+        "week": "2027-04-12",
+        "units": 410
+      },
+      {
+        "week": "2027-04-19",
+        "units": 370
+      },
+      {
+        "week": "2027-04-26",
+        "units": 365
+      },
+      {
+        "week": "2027-05-03",
+        "units": 340
+      }
+    ],
+    "recommendedUnits": 9000,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 7
+      },
+      {
+        "size": "S",
+        "percent": 21
+      },
+      {
+        "size": "M",
+        "percent": 32
+      },
+      {
+        "size": "L",
+        "percent": 26
+      },
+      {
+        "size": "XL",
+        "percent": 14
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "medium",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 5,860 to 10,980 units (80% range). Ordering 9,000 covers demand in 69% of them, with about 1,280 units expected left for markdown. Barrel-leg shape is at a plateau and leftover stock would clear at a deeper markdown, which pulls the order below the upper end of demand. Keep a re-order option open.",
+    "demandRange": {
+      "p10": 5860,
+      "p50": 7980,
+      "p90": 10980
+    },
+    "newsvendor": {
+      "criticalRatio": 0.69,
+      "underageCost": 23.4,
+      "overageCost": 10.53,
+      "markdownBasis": "peaking",
+      "stockoutProbability": 0.312,
+      "expectedSellThrough": 0.858,
+      "expectedLeftoverUnits": 1280,
+      "expectedProfit": 167284.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "top-on-off--back-lacing--cherry-red",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 390
+      },
+      {
+        "week": "2027-01-25",
+        "units": 590
+      },
+      {
+        "week": "2027-02-01",
+        "units": 640
+      },
+      {
+        "week": "2027-02-08",
+        "units": 645
+      },
+      {
+        "week": "2027-02-15",
+        "units": 665
+      },
+      {
+        "week": "2027-02-22",
+        "units": 680
+      },
+      {
+        "week": "2027-03-01",
+        "units": 680
+      },
+      {
+        "week": "2027-03-08",
+        "units": 690
+      },
+      {
+        "week": "2027-03-15",
+        "units": 715
+      },
+      {
+        "week": "2027-03-22",
+        "units": 640
+      },
+      {
+        "week": "2027-03-29",
+        "units": 620
+      },
+      {
+        "week": "2027-04-05",
+        "units": 570
+      },
+      {
+        "week": "2027-04-12",
+        "units": 510
+      },
+      {
+        "week": "2027-04-19",
+        "units": 510
+      },
+      {
+        "week": "2027-04-26",
+        "units": 470
+      },
+      {
+        "week": "2027-05-03",
+        "units": 445
+      }
+    ],
+    "recommendedUnits": 10700,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 10
+      },
+      {
+        "size": "S",
+        "percent": 26
+      },
+      {
+        "size": "M",
+        "percent": 31
+      },
+      {
+        "size": "L",
+        "percent": 22
+      },
+      {
+        "size": "XL",
+        "percent": 11
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "low",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 7,000 to 12,270 units (80% range). Ordering 10,700 covers demand in 75% of them, with about 1,630 units expected left for markdown. The linked trends are still building into launch, so the downside is mainly forecast error.",
+    "demandRange": {
+      "p10": 7000,
+      "p50": 9230,
+      "p90": 12270
+    },
+    "newsvendor": {
+      "criticalRatio": 0.75,
+      "underageCost": 14.4,
+      "overageCost": 4.8,
+      "markdownBasis": "rising",
+      "stockoutProbability": 0.25,
+      "expectedSellThrough": 0.848,
+      "expectedLeftoverUnits": 1630,
+      "expectedProfit": 122856.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "top-scarf-blouse--sheer-panel--chocolate-brown",
+    "weeklyDemand": [
+      {
+        "week": "2027-02-15",
+        "units": 390
+      },
+      {
+        "week": "2027-02-22",
+        "units": 625
+      },
+      {
+        "week": "2027-03-01",
+        "units": 690
+      },
+      {
+        "week": "2027-03-08",
+        "units": 760
+      },
+      {
+        "week": "2027-03-15",
+        "units": 780
+      },
+      {
+        "week": "2027-03-22",
+        "units": 770
+      },
+      {
+        "week": "2027-03-29",
+        "units": 760
+      },
+      {
+        "week": "2027-04-05",
+        "units": 775
+      },
+      {
+        "week": "2027-04-12",
+        "units": 755
+      },
+      {
+        "week": "2027-04-19",
+        "units": 695
+      },
+      {
+        "week": "2027-04-26",
+        "units": 675
+      },
+      {
+        "week": "2027-05-03",
+        "units": 615
+      },
+      {
+        "week": "2027-05-10",
+        "units": 545
+      },
+      {
+        "week": "2027-05-17",
+        "units": 520
+      },
+      {
+        "week": "2027-05-24",
+        "units": 480
+      },
+      {
+        "week": "2027-05-31",
+        "units": 470
+      }
+    ],
+    "recommendedUnits": 11350,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 10
+      },
+      {
+        "size": "S",
+        "percent": 26
+      },
+      {
+        "size": "M",
+        "percent": 31
+      },
+      {
+        "size": "L",
+        "percent": 22
+      },
+      {
+        "size": "XL",
+        "percent": 11
+      }
+    ],
+    "launchWindow": "Launch w/c 15 Feb 2027; selling window to May 2027",
+    "stockRisk": "medium",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 7,380 to 13,710 units (80% range). Ordering 11,350 covers demand in 69% of them, with about 1,620 units expected left for markdown. Chocolate brown is at a plateau and leftover stock would clear at a deeper markdown, which pulls the order below the upper end of demand. Keep a re-order option open.",
+    "demandRange": {
+      "p10": 7380,
+      "p50": 10050,
+      "p90": 13710
+    },
+    "newsvendor": {
+      "criticalRatio": 0.69,
+      "underageCost": 13.2,
+      "overageCost": 5.94,
+      "markdownBasis": "peaking",
+      "stockoutProbability": 0.314,
+      "expectedSellThrough": 0.857,
+      "expectedLeftoverUnits": 1620,
+      "expectedProfit": 118847.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "dress-sheer-layer--bow-straps--powder-blue",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 310
+      },
+      {
+        "week": "2027-01-25",
+        "units": 480
+      },
+      {
+        "week": "2027-02-01",
+        "units": 510
+      },
+      {
+        "week": "2027-02-08",
+        "units": 530
+      },
+      {
+        "week": "2027-02-15",
+        "units": 550
+      },
+      {
+        "week": "2027-02-22",
+        "units": 575
+      },
+      {
+        "week": "2027-03-01",
+        "units": 570
+      },
+      {
+        "week": "2027-03-08",
+        "units": 580
+      },
+      {
+        "week": "2027-03-15",
+        "units": 585
+      },
+      {
+        "week": "2027-03-22",
+        "units": 535
+      },
+      {
+        "week": "2027-03-29",
+        "units": 535
+      },
+      {
+        "week": "2027-04-05",
+        "units": 520
+      },
+      {
+        "week": "2027-04-12",
+        "units": 405
+      },
+      {
+        "week": "2027-04-19",
+        "units": 330
+      },
+      {
+        "week": "2027-04-26",
+        "units": 320
+      },
+      {
+        "week": "2027-05-03",
+        "units": 315
+      }
+    ],
+    "recommendedUnits": 8350,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 8
+      },
+      {
+        "size": "S",
+        "percent": 23
+      },
+      {
+        "size": "M",
+        "percent": 33
+      },
+      {
+        "size": "L",
+        "percent": 24
+      },
+      {
+        "size": "XL",
+        "percent": 12
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "medium",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 5,370 to 10,210 units (80% range). Ordering 8,350 covers demand in 69% of them, with about 1,210 units expected left for markdown. Sheer layering is at a plateau and leftover stock would clear at a deeper markdown, which pulls the order below the upper end of demand. Keep a re-order option open.",
+    "demandRange": {
+      "p10": 5370,
+      "p50": 7400,
+      "p90": 10210
+    },
+    "newsvendor": {
+      "criticalRatio": 0.69,
+      "underageCost": 22.8,
+      "overageCost": 10.26,
+      "markdownBasis": "peaking",
+      "stockoutProbability": 0.311,
+      "expectedSellThrough": 0.855,
+      "expectedLeftoverUnits": 1210,
+      "expectedProfit": 150484.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "dress-shirt-split--ruching--powder-blue",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 305
+      },
+      {
+        "week": "2027-01-25",
+        "units": 510
+      },
+      {
+        "week": "2027-02-01",
+        "units": 530
+      },
+      {
+        "week": "2027-02-08",
+        "units": 540
+      },
+      {
+        "week": "2027-02-15",
+        "units": 560
+      },
+      {
+        "week": "2027-02-22",
+        "units": 585
+      },
+      {
+        "week": "2027-03-01",
+        "units": 585
+      },
+      {
+        "week": "2027-03-08",
+        "units": 605
+      },
+      {
+        "week": "2027-03-15",
+        "units": 605
+      },
+      {
+        "week": "2027-03-22",
+        "units": 535
+      },
+      {
+        "week": "2027-03-29",
+        "units": 540
+      },
+      {
+        "week": "2027-04-05",
+        "units": 530
+      },
+      {
+        "week": "2027-04-12",
+        "units": 430
+      },
+      {
+        "week": "2027-04-19",
+        "units": 360
+      },
+      {
+        "week": "2027-04-26",
+        "units": 375
+      },
+      {
+        "week": "2027-05-03",
+        "units": 360
+      }
+    ],
+    "recommendedUnits": 8950,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 8
+      },
+      {
+        "size": "S",
+        "percent": 23
+      },
+      {
+        "size": "M",
+        "percent": 33
+      },
+      {
+        "size": "L",
+        "percent": 24
+      },
+      {
+        "size": "XL",
+        "percent": 12
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "low",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 5,930 to 10,140 units (80% range). Ordering 8,950 covers demand in 75% of them, with about 1,320 units expected left for markdown. The linked trends are still building into launch, so the downside is mainly forecast error.",
+    "demandRange": {
+      "p10": 5930,
+      "p50": 7780,
+      "p90": 10140
+    },
+    "newsvendor": {
+      "criticalRatio": 0.75,
+      "underageCost": 23.4,
+      "overageCost": 7.8,
+      "markdownBasis": "rising",
+      "stockoutProbability": 0.249,
+      "expectedSellThrough": 0.853,
+      "expectedLeftoverUnits": 1320,
+      "expectedProfit": 168391.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "top-sheer-shirt--back-lacing--ecru",
+    "weeklyDemand": [
+      {
+        "week": "2027-03-01",
+        "units": 365
+      },
+      {
+        "week": "2027-03-08",
+        "units": 590
+      },
+      {
+        "week": "2027-03-15",
+        "units": 675
+      },
+      {
+        "week": "2027-03-22",
+        "units": 705
+      },
+      {
+        "week": "2027-03-29",
+        "units": 715
+      },
+      {
+        "week": "2027-04-05",
+        "units": 720
+      },
+      {
+        "week": "2027-04-12",
+        "units": 685
+      },
+      {
+        "week": "2027-04-19",
+        "units": 685
+      },
+      {
+        "week": "2027-04-26",
+        "units": 670
+      },
+      {
+        "week": "2027-05-03",
+        "units": 650
+      },
+      {
+        "week": "2027-05-10",
+        "units": 640
+      },
+      {
+        "week": "2027-05-17",
+        "units": 580
+      },
+      {
+        "week": "2027-05-24",
+        "units": 525
+      },
+      {
+        "week": "2027-05-31",
+        "units": 525
+      },
+      {
+        "week": "2027-06-07",
+        "units": 480
+      },
+      {
+        "week": "2027-06-14",
+        "units": 455
+      }
+    ],
+    "recommendedUnits": 10650,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 10
+      },
+      {
+        "size": "S",
+        "percent": 26
+      },
+      {
+        "size": "M",
+        "percent": 31
+      },
+      {
+        "size": "L",
+        "percent": 22
+      },
+      {
+        "size": "XL",
+        "percent": 11
+      }
+    ],
+    "launchWindow": "Launch w/c 1 Mar 2027; selling window to June 2027",
+    "stockRisk": "medium",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 6,800 to 12,960 units (80% range). Ordering 10,650 covers demand in 69% of them, with about 1,550 units expected left for markdown. Sheer layering is at a plateau and leftover stock would clear at a deeper markdown, which pulls the order below the upper end of demand. Keep a re-order option open.",
+    "demandRange": {
+      "p10": 6800,
+      "p50": 9410,
+      "p90": 12960
+    },
+    "newsvendor": {
+      "criticalRatio": 0.69,
+      "underageCost": 13.8,
+      "overageCost": 6.21,
+      "markdownBasis": "peaking",
+      "stockoutProbability": 0.307,
+      "expectedSellThrough": 0.854,
+      "expectedLeftoverUnits": 1550,
+      "expectedProfit": 115880.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "jeans-zip-off--contrast-stitch--mid-blue",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 340
+      },
+      {
+        "week": "2027-01-25",
+        "units": 520
+      },
+      {
+        "week": "2027-02-01",
+        "units": 565
+      },
+      {
+        "week": "2027-02-08",
+        "units": 575
+      },
+      {
+        "week": "2027-02-15",
+        "units": 590
+      },
+      {
+        "week": "2027-02-22",
+        "units": 590
+      },
+      {
+        "week": "2027-03-01",
+        "units": 590
+      },
+      {
+        "week": "2027-03-08",
+        "units": 585
+      },
+      {
+        "week": "2027-03-15",
+        "units": 585
+      },
+      {
+        "week": "2027-03-22",
+        "units": 480
+      },
+      {
+        "week": "2027-03-29",
+        "units": 455
+      },
+      {
+        "week": "2027-04-05",
+        "units": 445
+      },
+      {
+        "week": "2027-04-12",
+        "units": 415
+      },
+      {
+        "week": "2027-04-19",
+        "units": 355
+      },
+      {
+        "week": "2027-04-26",
+        "units": 320
+      },
+      {
+        "week": "2027-05-03",
+        "units": 290
+      }
+    ],
+    "recommendedUnits": 8900,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 7
+      },
+      {
+        "size": "S",
+        "percent": 21
+      },
+      {
+        "size": "M",
+        "percent": 32
+      },
+      {
+        "size": "L",
+        "percent": 26
+      },
+      {
+        "size": "XL",
+        "percent": 14
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "low",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 6,220 to 9,250 units (80% range). Ordering 8,900 covers demand in 86% of them, with about 1,340 units expected left for markdown. No tracked trend drives this piece, so leftover stock can carry over to next season. That is why the order sits higher in the demand range.",
+    "demandRange": {
+      "p10": 6220,
+      "p50": 7570,
+      "p90": 9250
+    },
+    "newsvendor": {
+      "criticalRatio": 0.857,
+      "underageCost": 24.6,
+      "overageCost": 4.1,
+      "markdownBasis": "evergreen",
+      "stockoutProbability": 0.146,
+      "expectedSellThrough": 0.85,
+      "expectedLeftoverUnits": 1340,
+      "expectedProfit": 180514.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "jeans-straight--statement-button--black",
+    "weeklyDemand": [
+      {
+        "week": "2027-01-18",
+        "units": 345
+      },
+      {
+        "week": "2027-01-25",
+        "units": 500
+      },
+      {
+        "week": "2027-02-01",
+        "units": 580
+      },
+      {
+        "week": "2027-02-08",
+        "units": 595
+      },
+      {
+        "week": "2027-02-15",
+        "units": 600
+      },
+      {
+        "week": "2027-02-22",
+        "units": 585
+      },
+      {
+        "week": "2027-03-01",
+        "units": 575
+      },
+      {
+        "week": "2027-03-08",
+        "units": 570
+      },
+      {
+        "week": "2027-03-15",
+        "units": 555
+      },
+      {
+        "week": "2027-03-22",
+        "units": 445
+      },
+      {
+        "week": "2027-03-29",
+        "units": 425
+      },
+      {
+        "week": "2027-04-05",
+        "units": 410
+      },
+      {
+        "week": "2027-04-12",
+        "units": 410
+      },
+      {
+        "week": "2027-04-19",
+        "units": 350
+      },
+      {
+        "week": "2027-04-26",
+        "units": 310
+      },
+      {
+        "week": "2027-05-03",
+        "units": 285
+      }
+    ],
+    "recommendedUnits": 8650,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 7
+      },
+      {
+        "size": "S",
+        "percent": 21
+      },
+      {
+        "size": "M",
+        "percent": 32
+      },
+      {
+        "size": "L",
+        "percent": 26
+      },
+      {
+        "size": "XL",
+        "percent": 14
+      }
+    ],
+    "launchWindow": "Launch w/c 18 Jan 2027; selling window to May 2027",
+    "stockRisk": "low",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 6,200 to 8,950 units (80% range). Ordering 8,650 covers demand in 86% of them, with about 1,230 units expected left for markdown. No tracked trend drives this piece, so leftover stock can carry over to next season. That is why the order sits higher in the demand range.",
+    "demandRange": {
+      "p10": 6200,
+      "p50": 7450,
+      "p90": 8950
+    },
+    "newsvendor": {
+      "criticalRatio": 0.857,
+      "underageCost": 22.8,
+      "overageCost": 3.8,
+      "markdownBasis": "evergreen",
+      "stockoutProbability": 0.146,
+      "expectedSellThrough": 0.858,
+      "expectedLeftoverUnits": 1230,
+      "expectedProfit": 164453.0,
+      "simulations": 5000
+    }
+  },
+  {
+    "briefId": "skirt-wrap-multi--statement-button--powder-blue",
+    "weeklyDemand": [
+      {
+        "week": "2027-02-15",
+        "units": 280
+      },
+      {
+        "week": "2027-02-22",
+        "units": 440
+      },
+      {
+        "week": "2027-03-01",
+        "units": 475
+      },
+      {
+        "week": "2027-03-08",
+        "units": 505
+      },
+      {
+        "week": "2027-03-15",
+        "units": 535
+      },
+      {
+        "week": "2027-03-22",
+        "units": 555
+      },
+      {
+        "week": "2027-03-29",
+        "units": 560
+      },
+      {
+        "week": "2027-04-05",
+        "units": 550
+      },
+      {
+        "week": "2027-04-12",
+        "units": 540
+      },
+      {
+        "week": "2027-04-19",
+        "units": 450
+      },
+      {
+        "week": "2027-04-26",
+        "units": 455
+      },
+      {
+        "week": "2027-05-03",
+        "units": 425
+      },
+      {
+        "week": "2027-05-10",
+        "units": 380
+      },
+      {
+        "week": "2027-05-17",
+        "units": 310
+      },
+      {
+        "week": "2027-05-24",
+        "units": 305
+      },
+      {
+        "week": "2027-05-31",
+        "units": 300
+      }
+    ],
+    "recommendedUnits": 8150,
+    "sizeSplit": [
+      {
+        "size": "XS",
+        "percent": 9
+      },
+      {
+        "size": "S",
+        "percent": 25
+      },
+      {
+        "size": "M",
+        "percent": 32
+      },
+      {
+        "size": "L",
+        "percent": 23
+      },
+      {
+        "size": "XL",
+        "percent": 11
+      }
+    ],
+    "launchWindow": "Launch w/c 15 Feb 2027; selling window to May 2027",
+    "stockRisk": "low",
+    "riskReason": "Across 5,000 simulated seasons, demand ran from 4,980 to 9,360 units (80% range). Ordering 8,150 covers demand in 75% of them, with about 1,390 units expected left for markdown. The linked trends are still building into launch, so the downside is mainly forecast error.",
+    "demandRange": {
+      "p10": 4980,
+      "p50": 6920,
+      "p90": 9360
+    },
+    "newsvendor": {
+      "criticalRatio": 0.75,
+      "underageCost": 19.2,
+      "overageCost": 6.4,
+      "markdownBasis": "rising",
+      "stockoutProbability": 0.247,
+      "expectedSellThrough": 0.83,
+      "expectedLeftoverUnits": 1390,
+      "expectedProfit": 120935.0,
+      "simulations": 5000
+    }
+  }
 ];
-
-const rows: [string, number, number, number, [number, number, number, number, number], string, StockRisk, string][] = [
-  ["b-01", 3200, 7, 3, [10, 28, 32, 20, 10], "Mar W2 – Apr W4", "medium", "Peaking lace trend could cool before reorders land."],
-  ["b-02", 4100, 8, 4, [8, 24, 34, 22, 12], "Apr W1 – Jun W2", "low", "Two rising signals and strong colour sell-through."],
-  ["b-03", 2600, 9, 3, [12, 30, 30, 18, 10], "Apr W3 – Jun W1", "medium", "Zip hardware lead time is 6 weeks; novelty fit."],
-  ["b-04", 3800, 6, 4, [9, 26, 33, 21, 11], "Feb W4 – Apr W3", "low", "Proven poplin block, broad audience."],
-  ["b-05", 2200, 5, 3, [11, 27, 31, 20, 11], "Feb W2 – Mar W4", "medium", "Neutral trend is peaking; keep reorder flexible."],
-  ["b-06", 3500, 9, 3, [13, 31, 30, 17, 9], "May W1 – Jul W2", "low", "One-size wrap reduces size-curve risk."],
-  ["b-07", 4800, 7, 5, [7, 22, 34, 24, 13], "Mar W1 – Jun W4", "low", "Core straight fit with unique detail; stable demand."],
-  ["b-08", 1900, 6, 3, [12, 29, 31, 18, 10], "Mar W3 – May W1", "medium", "Moderate confidence; knit MOQ is high."],
-  ["b-09", 1600, 5, 2, [10, 26, 32, 21, 11], "Nov W2 – Dec W4", "high", "Sheer layering peaking and narrow occasion window."],
-  ["b-10", 2100, 8, 3, [12, 30, 31, 18, 9], "Apr W2 – Jun W1", "medium", "Complex construction; higher unit cost."],
-  ["b-11", 5600, 6, 5, [14, 32, 29, 16, 9], "Feb W1 – May W4", "low", "High-volume staple with low unit cost."],
-  ["b-12", 1800, 9, 3, [11, 29, 31, 19, 10], "May W2 – Jul W1", "high", "Novel mechanism; lowest DNA fit — test with small drop."],
-];
-
-export const forecasts: Forecast[] = rows.map(([briefId, peak, pw, sp, ss, launchWindow, stockRisk, riskReason], i) => {
-  const weeklyDemand = curve(peak / 6, pw, sp, i + 2);
-  return {
-    briefId,
-    weeklyDemand,
-    recommendedUnits: Math.round((weeklyDemand.reduce((a, w) => a + w.units, 0) * 0.92) / 50) * 50,
-    sizeSplit: split(...ss),
-    launchWindow,
-    stockRisk,
-    riskReason,
-  };
-});

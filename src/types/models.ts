@@ -45,4 +45,19 @@ export type Forecast = {
   launchWindow: string;
   stockRisk: StockRisk;
   riskReason: string;
+  // How recommendedUnits was set: a newsvendor model on simulated demand.
+  demandRange?: { p10: number; p50: number; p90: number }; // simulated season demand
+  newsvendor?: Newsvendor;
+};
+
+export type Newsvendor = {
+  criticalRatio: number; // demand percentile ordered to = Cu / (Cu + Co)
+  underageCost: number; // $ margin lost per missed sale
+  overageCost: number; // $ lost per unsold unit after markdown
+  markdownBasis: "evergreen" | "rising" | "peaking" | "fading";
+  stockoutProbability: number; // 0-1
+  expectedSellThrough: number; // 0-1
+  expectedLeftoverUnits: number;
+  expectedProfit: number;
+  simulations: number;
 };

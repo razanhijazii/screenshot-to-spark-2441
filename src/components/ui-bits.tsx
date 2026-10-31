@@ -3,6 +3,13 @@ import { Line, LineChart, ResponsiveContainer } from "recharts";
 import type { DesignBrief, StockRisk, TrendStatus } from "@/types/models";
 import { cn } from "@/lib/utils";
 
+/** "2027-03-22" -> "22 Mar". Leaves anything else (e.g. "W1") as it is. */
+export function fmtWeek(week: string): string {
+  const d = new Date(`${week}T00:00:00Z`);
+  if (Number.isNaN(d.getTime())) return week;
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+}
+
 export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
   return (
     <header className="mb-10 border-b pb-8">

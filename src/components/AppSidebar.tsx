@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { LayoutGrid, TrendingUp, PenTool, Recycle, BarChart3, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { LiveDataStatus } from "@/components/LiveDataStatus";
 
 const items = [
   { to: "/", label: "Overview", icon: LayoutGrid },
@@ -45,7 +46,20 @@ export function AppSidebar() {
             </Link>
           ))}
         </nav>
-        <p className="eyebrow mt-auto leading-relaxed">Internal concept · Mock data</p>
+        <div className="mt-auto space-y-3 pt-10">
+          <LiveDataStatus />
+          <p className="text-[0.7rem] leading-snug text-muted-foreground">
+            Independent concept project, not affiliated with H&amp;M. Synthetic demo data.
+          </p>
+          <a
+            href="https://github.com/razanhijazii/hm-design-intelligence"
+            target="_blank"
+            rel="noreferrer"
+            className="eyebrow block hover:text-foreground"
+          >
+            How it works · GitHub →
+          </a>
+        </div>
       </aside>
     </>
   );

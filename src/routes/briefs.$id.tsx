@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { briefQuery, forecastsQuery, trendsQuery } from "@/services/api";
-import { RiskBadge, ScoreBar } from "@/components/ui-bits";
+import { fmtWeek, RiskBadge, ScoreBar } from "@/components/ui-bits";
 
 export const Route = createFileRoute("/briefs/$id")({
   loader: async ({ context: { queryClient }, params }) => {
@@ -79,8 +79,8 @@ function BriefDetail() {
               <div className="card-edit h-56 p-4">
                 <ResponsiveContainer>
                   <AreaChart data={f.weeklyDemand}>
-                    <XAxis dataKey="week" tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
-                    <Tooltip />
+                    <XAxis dataKey="week" tickFormatter={fmtWeek} tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
+                    <Tooltip labelFormatter={(w) => `Week of ${fmtWeek(String(w))}`} />
                     <Area dataKey="units" stroke="var(--accent)" fill="var(--accent-soft)" />
                   </AreaChart>
                 </ResponsiveContainer>

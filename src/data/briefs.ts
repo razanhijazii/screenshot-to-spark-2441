@@ -1,289 +1,474 @@
+// Real output of the H&M design & demand engine (github.com/razanhijazii/hm-design-intelligence).
+// Bundled so the site opens instantly; the live API refreshes it in the background. Synthetic demo data.
 import type { DesignBrief } from "@/types/models";
 
 export const briefs: DesignBrief[] = [
   {
-    id: "b-01",
-    title: "Convertible midi skirt with corset-lace back",
-    garmentType: "skirt",
-    style: "creative",
-    baseDescription: "A bias-cut satin midi skirt with a high, smocked waistband and clean A-line fall.",
-    signatureDetail: "A hidden corset-lace panel at the back waistband that tightens to reshape it into a bodice.",
-    whyNow: [
-      "Corset lace-up backs converting 48% above top category average",
-      "Multiway pieces show 23% higher repeat-wear intent in surveys",
-      "Satin midi skirts are top-5 search term in skirts for 9 weeks",
+    "id": "skirt-drop-waist-pleat--sheer-panel--cherry-red",
+    "title": "Drop-waist pleated midi skirt with a sheer hem band",
+    "garmentType": "skirt",
+    "style": "classy",
+    "baseDescription": "A midi skirt in recycled polyester satin with a smooth hip yoke and soft pleats released from a low drop waist. Lead colourway: cherry red.",
+    "signatureDetail": "A deep band of tonal mesh at the hem, so the skirt reads midi but feels light.",
+    "whyNow": [
+      "Cherry red: rising (momentum +38), projected at about 89/100 when this lands.",
+      "Also draws on drop-waist silhouette (rising, +25) and sheer layering (peaking, -2).",
+      "The demand model puts it about 9% above the median skirt candidate.",
+      "Past pieces with sheer panels sold 1.11× their category average and were rated 3.9/5 (29 products).",
+      "New to the range: no past skirt shares more than 2 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-corset-lace", "t-butter-yellow"],
-    brandDnaFit: 82,
-    targetCustomer: "Women 22–34, wardrobe-savvy, attends 2+ events a month",
-    priceRange: "$34–44",
-    isMultiway: true,
-    conversions: [
-      { from: "Midi skirt", to: "Strapless dress", steps: ["Pull waistband up to underarm", "Tighten back lacing to fit", "Tie lace ends in a bow"] },
-      { from: "Midi skirt", to: "Bandeau top", steps: ["Fold skirt hem inward to waist", "Wear smocked band across bust", "Secure with lacing"] },
+    "linkedTrendIds": [
+      "trend-cherry-red",
+      "trend-drop-waist",
+      "trend-sheer-layers"
     ],
-    isSustainable: false,
-    confidence: 81,
+    "brandDnaFit": 86,
+    "targetCustomer": "Polished dresser, 22–40, building outfits for work and dinners",
+    "priceRange": "$24–29",
+    "isMultiway": false,
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Satin woven from recycled polyester made from post-consumer plastic bottles.",
+      "Adds about $2 to the price point; the price range already includes it."
+    ],
+    "confidence": 76
   },
   {
-    id: "b-02",
-    title: "Butter yellow drop-waist linen dress",
-    garmentType: "dress",
-    style: "casual",
-    baseDescription: "A sleeveless, square-neck day dress with a relaxed drop waist and soft gathered skirt.",
-    signatureDetail: "Contrast hand-feel topstitching in ecru along the drop-waist seam.",
-    whyNow: [
-      "Butter yellow is the fastest-rising colour signal (+78 momentum)",
-      "Drop-waist dresses selling out at competitors within 3 weeks",
-      "Linen searches peak in 6–10 weeks, aligned to launch window",
+    "id": "dress-drop-waist-jersey--bow-straps--chocolate-brown",
+    "title": "Drop-waist jersey midi dress with bow-tied straps",
+    "garmentType": "dress",
+    "style": "casual",
+    "baseDescription": "A soft midi dress in lyocell jersey with a long fitted bodice, a low drop waist and a gently flared skirt. Lead colourway: chocolate brown.",
+    "signatureDetail": "Shoulder straps that tie in small bows at the front, so the strap length and neckline height can be adjusted.",
+    "whyNow": [
+      "Scarf ties and bows: rising (momentum +26), projected at about 84/100 when this lands.",
+      "Also draws on drop-waist silhouette (rising, +25) and chocolate brown (peaking, -2).",
+      "Past pieces with a drop-waist cut sold 1.07× their category average and were rated 3.8/5 (5 products).",
+      "New to the range: no past dress shares more than 2 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-butter-yellow", "t-drop-waist", "t-deadstock-linen"],
-    brandDnaFit: 88,
-    targetCustomer: "Women 25–40, city dwellers, prefers easy one-and-done outfits",
-    priceRange: "$39–49",
-    isMultiway: false,
-    isSustainable: true,
-    sustainabilityNotes: [
-      "70% recycled linen blend sourced from verified deadstock",
-      "Undyed ecru topstitch thread reduces dye-water usage",
-      "Reinforced seams for 50+ wash longevity",
+    "linkedTrendIds": [
+      "trend-chocolate-brown",
+      "trend-drop-waist",
+      "trend-scarf-ties"
     ],
-    confidence: 86,
+    "brandDnaFit": 89,
+    "targetCustomer": "Everyday comfort dresser, 22–40, who wants a dress that works with trainers",
+    "priceRange": "$34–39",
+    "isMultiway": false,
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Lyocell from certified wood pulp, made in a closed-loop process that recovers its solvent.",
+      "Adds about $3 to the price point; the price range already includes it."
+    ],
+    "confidence": 74
   },
   {
-    id: "b-03",
-    title: "Barrel-leg jeans with zip-off lower legs",
-    garmentType: "jeans",
-    style: "creative",
-    baseDescription: "Mid-rise barrel-leg jeans in rigid mid-wash denim with a curved, sculpted leg.",
-    signatureDetail: "Tonal concealed zips at the knee that remove the lower leg for a long Bermuda short.",
-    whyNow: [
-      "Barrel-leg search 3x YoY, overtaking wide-leg in UK & DE",
-      "Bermuda shorts rising in men's and women's denim simultaneously",
-      "Test batch returns 9% below denim average",
+    "id": "skirt-tube--scarf-tie--cherry-red",
+    "title": "Convertible tube skirt with a scarf-tie sash",
+    "garmentType": "skirt",
+    "style": "casual",
+    "baseDescription": "A midi tube skirt in crinkle jersey with a deep, soft elastic waistband that stretches up over the bust. Lead colourway: cherry red.",
+    "signatureDetail": "A narrow self-fabric scarf threaded through the waistband and tied off to one side as a sash.",
+    "whyNow": [
+      "Cherry red: rising (momentum +38), projected at about 89/100 when this lands.",
+      "Also draws on scarf ties and bows (rising, +26) and crinkle texture (rising, +21).",
+      "The demand model puts it about 24% above the median skirt candidate.",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past skirt shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-barrel-leg"],
-    brandDnaFit: 74,
-    targetCustomer: "Gen Z & young millennials 18–28, trend-forward, travel light",
-    priceRange: "$44–54",
-    isMultiway: true,
-    conversions: [
-      { from: "Barrel jeans", to: "Bermuda shorts", steps: ["Unzip both knee zips", "Remove lower legs", "Roll hem once for a clean edge"] },
-      { from: "Barrel jeans", to: "Cropped barrel", steps: ["Unzip lower legs", "Re-attach at upper zip track", "Wear as ankle-grazing crop"] },
+    "linkedTrendIds": [
+      "trend-cherry-red",
+      "trend-crinkle-texture",
+      "trend-scarf-ties"
     ],
-    isSustainable: false,
-    confidence: 77,
+    "brandDnaFit": 92,
+    "targetCustomer": "Casual and holiday dresser, 18–30, who packs light",
+    "priceRange": "$24–29",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "Midi tube skirt",
+        "to": "Strapless mini dress",
+        "steps": [
+          "Pull the waistband up so it sits over the bust.",
+          "Smooth the skirt down; the midi length now falls as a mini dress."
+        ]
+      },
+      {
+        "from": "Midi tube skirt",
+        "to": "Ruched mini skirt",
+        "steps": [
+          "Push the skirt up from the hem and gather it at the hips.",
+          "The soft elastic holds the gathers in place."
+        ]
+      }
+    ],
+    "isSustainable": false,
+    "confidence": 81
   },
   {
-    id: "b-04",
-    title: "Sheer-sleeve poplin shirt with bow cuffs",
-    garmentType: "top",
-    style: "classy",
-    baseDescription: "A crisp, slightly oversized cotton poplin shirt with a clean concealed placket.",
-    signatureDetail: "Detachable sheer organza sleeves finished with tiny grosgrain bows at the cuff.",
-    whyNow: [
-      "Tiny bow details up 96% on Instagram in 10 weeks",
-      "Sheer layering strong in occasion — this bridges office and evening",
-      "Poplin shirts are an H&M bestseller core with proven fit blocks",
+    "id": "jeans-barrel--scarf-tie--chocolate-brown",
+    "title": "Barrel-leg jeans with a scarf-tie belt",
+    "garmentType": "jeans",
+    "style": "casual",
+    "baseDescription": "Mid-rise barrel-leg jeans in denim with recycled cotton with a rounded leg that tapers to a cropped hem. Lead colourway: chocolate brown.",
+    "signatureDetail": "A slim cotton scarf threaded through the belt loops in place of a belt, knotted at the hip.",
+    "whyNow": [
+      "Scarf ties and bows: rising (momentum +26), projected at about 84/100 when this lands.",
+      "Also draws on barrel-leg shape (peaking, -4) and chocolate brown (peaking, -2).",
+      "Past pieces in chocolate brown sold 1.04× their category average and were rated 3.8/5 (27 products).",
+      "New to the range: no past pair of jeans shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-bow-detail", "t-sheer-layers"],
-    brandDnaFit: 91,
-    targetCustomer: "Women 26–42, office-to-dinner dressers",
-    priceRange: "$29–39",
-    isMultiway: true,
-    conversions: [
-      { from: "Sheer-sleeve shirt", to: "Sleeveless shirt", steps: ["Unbutton hidden sleeve tabs", "Slide sleeves off", "Wear as a sharp shell"] },
-      { from: "Sheer-sleeve shirt", to: "Layering vest", steps: ["Remove sleeves", "Wear open over a slip dress", "Tie front hem"] },
+    "linkedTrendIds": [
+      "trend-barrel-leg",
+      "trend-chocolate-brown",
+      "trend-scarf-ties"
     ],
-    isSustainable: false,
-    confidence: 84,
+    "brandDnaFit": 88,
+    "targetCustomer": "Denim-first casual dresser, 18–30, who follows new fits",
+    "priceRange": "$34–39",
+    "isMultiway": false,
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Blends cotton recycled from post-consumer denim with new fibre.",
+      "Adds about $3 to the price point; the price range already includes it."
+    ],
+    "confidence": 84
   },
   {
-    id: "b-05",
-    title: "Chocolate slip dress with keyhole back",
-    garmentType: "dress",
-    style: "classy",
-    baseDescription: "A bias-cut cupro slip dress falling just below the knee with fine adjustable straps.",
-    signatureDetail: "A teardrop keyhole at the back held by a single covered button.",
-    whyNow: [
-      "Chocolate brown remains a top-3 neutral in own sales",
-      "Slip dresses carry lowest return rate in occasion category",
-      "Minimal 'quiet luxury' styling replacing logo-led looks",
+    "id": "top-on-off--back-lacing--cherry-red",
+    "title": "On/off-shoulder top with exposed back lacing",
+    "garmentType": "top",
+    "style": "casual",
+    "baseDescription": "A loose top in organic crinkled cotton with an elasticated neckline and a drawcord hem. Lead colourway: cherry red.",
+    "signatureDetail": "Exposed ribbon lacing at the centre back, from the shoulder blades to the waist, that pulls in for a closer fit.",
+    "whyNow": [
+      "Cherry red: rising (momentum +38), projected at about 89/100 when this lands.",
+      "Also draws on exposed lacing (rising, +50) and crinkle texture (rising, +21).",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past top shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-chocolate-brown"],
-    brandDnaFit: 85,
-    targetCustomer: "Women 24–38, minimalist, buys fewer better pieces",
-    priceRange: "$44–59",
-    isMultiway: false,
-    isSustainable: true,
-    sustainabilityNotes: [
-      "Cupro made from cotton linter, a pre-consumer waste product",
-      "Closed-loop solvent process",
+    "linkedTrendIds": [
+      "trend-cherry-red",
+      "trend-crinkle-texture",
+      "trend-exposed-lacing"
     ],
-    confidence: 72,
+    "brandDnaFit": 92,
+    "targetCustomer": "Holiday and summer dresser, 18–30",
+    "priceRange": "$19–24",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "On-shoulder top",
+        "to": "Off-shoulder top",
+        "steps": [
+          "Pull the elasticated neckline down over both shoulders.",
+          "Spread the gathers evenly across the front."
+        ]
+      },
+      {
+        "from": "Loose top",
+        "to": "Cropped blouson top",
+        "steps": [
+          "Pull the hem drawcord to gather the top into a cropped shape.",
+          "Tie the drawcord in a bow at the front."
+        ]
+      }
+    ],
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Organic cotton with a permanent crinkle finish, so it needs no ironing.",
+      "Made to be worn several ways, so one purchase covers more outfits and stays in rotation longer.",
+      "Adds about $3 to the price point; the price range already includes it."
+    ],
+    "confidence": 85
   },
   {
-    id: "b-06",
-    title: "Wrap-tie mini skirt that becomes a halter top",
-    garmentType: "skirt",
-    style: "casual",
-    baseDescription: "A lightweight crinkle-cotton wrap mini skirt with long self-ties.",
-    signatureDetail: "Extra-long ties with tiny bow tips that double as halter straps.",
-    whyNow: [
-      "Festival & holiday packing searches favour multiway pieces",
-      "Tiny bow detail trending in 18–28 segment",
-      "Wrap skirts have the broadest size fit — lowers return risk",
+    "id": "top-scarf-blouse--sheer-panel--chocolate-brown",
+    "title": "Scarf-collar blouse with sheer sleeves",
+    "garmentType": "top",
+    "style": "classy",
+    "baseDescription": "A relaxed blouse in crinkled cotton poplin with long scarf ends at the collar that tie, knot or hang loose. Lead colourway: chocolate brown.",
+    "signatureDetail": "Sheer sleeves in tonal mesh on an otherwise opaque body.",
+    "whyNow": [
+      "Scarf ties and bows: rising (momentum +26), projected at about 84/100 when this lands.",
+      "Also draws on crinkle texture (rising, +21) and sheer layering (peaking, -2).",
+      "Past pieces with sheer panels sold 1.11× their category average and were rated 3.9/5 (29 products).",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past top shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-bow-detail", "t-butter-yellow"],
-    brandDnaFit: 79,
-    targetCustomer: "Women 18–30, holiday & festival goers",
-    priceRange: "$24–32",
-    isMultiway: true,
-    conversions: [
-      { from: "Wrap mini skirt", to: "Halter top", steps: ["Unwrap and hold at bust", "Cross ties behind neck", "Tie in a bow at back"] },
-      { from: "Wrap mini skirt", to: "Beach sarong", steps: ["Wrap loosely at hip", "Knot ties at side"] },
-      { from: "Wrap mini skirt", to: "Bandeau top", steps: ["Wrap twice around bust", "Tuck ends and tie at front"] },
+    "linkedTrendIds": [
+      "trend-chocolate-brown",
+      "trend-crinkle-texture",
+      "trend-scarf-ties",
+      "trend-sheer-layers"
     ],
-    isSustainable: true,
-    sustainabilityNotes: [
-      "Organic crinkle cotton, GOTS certified",
-      "Zero-waste rectangular pattern — no offcuts",
-      "One piece replaces three in a travel capsule",
+    "brandDnaFit": 88,
+    "targetCustomer": "Workwear-to-weekend dresser, 22–40, who wants polished pieces that aren't stiff",
+    "priceRange": "$19–24",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "Bow-neck blouse",
+        "to": "Open-collar shirt",
+        "steps": [
+          "Untie the bow.",
+          "Tuck the scarf ends inside the collar for a clean V-neck."
+        ]
+      },
+      {
+        "from": "Bow-neck blouse",
+        "to": "Back-tie top",
+        "steps": [
+          "Wear the blouse back to front, so the button placket becomes a low back.",
+          "Tie the scarf ends at the nape of the neck."
+        ]
+      }
     ],
-    confidence: 80,
+    "isSustainable": false,
+    "confidence": 88
   },
   {
-    id: "b-07",
-    title: "Straight jeans with patchwork deadstock pocket",
-    garmentType: "jeans",
-    style: "casual",
-    baseDescription: "A high-rise, full-length straight-leg jean in soft 100% cotton denim.",
-    signatureDetail: "One back pocket pieced from deadstock denim offcuts — every pair slightly unique.",
-    whyNow: [
-      "Straight leg is the stable volume driver while skinny fades (-62)",
-      "62% of customers would pay +$5 for recycled fibres",
-      "'One-of-a-kind' detailing boosts social shares 2.3x",
+    "id": "dress-sheer-layer--bow-straps--powder-blue",
+    "title": "Layered column dress with bow-tied straps",
+    "garmentType": "dress",
+    "style": "creative",
+    "baseDescription": "A column midi dress with a removable recycled sheer mesh overlay worn over a matching opaque slip. Lead colourway: powder blue.",
+    "signatureDetail": "Shoulder straps that tie in small bows at the front, so the strap length and neckline height can be adjusted.",
+    "whyNow": [
+      "Scarf ties and bows: rising (momentum +26), projected at about 84/100 when this lands.",
+      "Also draws on powder blue (rising, +30) and sheer layering (peaking, -2).",
+      "Past pieces in sheer fabric sold 1.07× their category average and were rated 3.8/5 (20 products).",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past dress shares more than 2 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-deadstock-linen", "t-skinny-jeans"],
-    brandDnaFit: 87,
-    targetCustomer: "Women & men 20–45, denim regulars upgrading from skinny",
-    priceRange: "$39–49",
-    isMultiway: false,
-    isSustainable: true,
-    sustainabilityNotes: [
-      "Pocket uses 100% deadstock offcuts from own mills",
-      "Laser finishing instead of stone-wash: ~60% less water",
-      "Metal-free shank buttons for easier recycling",
+    "linkedTrendIds": [
+      "trend-powder-blue",
+      "trend-scarf-ties",
+      "trend-sheer-layers"
     ],
-    confidence: 83,
+    "brandDnaFit": 82,
+    "targetCustomer": "Trend-led dresser, 18–28, who likes statement layering",
+    "priceRange": "$34–39",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "Layered column dress",
+        "to": "Slip dress",
+        "steps": [
+          "Undo the two snaps hidden at the shoulders.",
+          "Lift the sheer overlay off over the head."
+        ]
+      },
+      {
+        "from": "Sheer overlay",
+        "to": "Sheer tunic over jeans",
+        "steps": [
+          "Wear the overlay on its own over jeans and a fitted tank.",
+          "Tie the side ribbons loosely to shape the waist."
+        ]
+      }
+    ],
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Mesh knitted from recycled polyamide.",
+      "Made to be worn several ways, so one purchase covers more outfits and stays in rotation longer.",
+      "Adds about $2 to the price point; the price range already includes it."
+    ],
+    "confidence": 79
   },
   {
-    id: "b-08",
-    title: "Drop-waist knit top with scalloped hem",
-    garmentType: "top",
-    style: "creative",
-    baseDescription: "A fine-gauge, longline knit top with a fitted body and dropped waist seam.",
-    signatureDetail: "A deep scalloped hem edged with a contrast picot stitch.",
-    whyNow: [
-      "Drop-waist silhouettes translating from dresses into tops",
-      "Fine-knit tops perform year-round, extending selling window",
+    "id": "dress-shirt-split--ruching--powder-blue",
+    "title": "Two-piece shirt dress with adjustable side ruching",
+    "garmentType": "dress",
+    "style": "casual",
+    "baseDescription": "A relaxed shirt dress in organic crinkled cotton with a low drop-waist seam that hides a row of buttons, so the bodice and skirt come apart. Lead colourway: powder blue.",
+    "signatureDetail": "A drawcord inside one side seam that ruches the fabric, so the hem can be raised or lowered.",
+    "whyNow": [
+      "Drop-waist silhouette: rising (momentum +25), projected at about 78/100 when this lands.",
+      "Also draws on crinkle texture (rising, +21) and powder blue (rising, +30).",
+      "Past pieces with a drop-waist cut sold 1.07× their category average and were rated 3.8/5 (5 products).",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past dress shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-drop-waist"],
-    brandDnaFit: 76,
-    targetCustomer: "Women 20–35, layer-lovers, shops monthly",
-    priceRange: "$27–35",
-    isMultiway: false,
-    isSustainable: false,
-    confidence: 68,
+    "linkedTrendIds": [
+      "trend-crinkle-texture",
+      "trend-drop-waist",
+      "trend-powder-blue"
+    ],
+    "brandDnaFit": 89,
+    "targetCustomer": "Student or young professional, 18–30, building a capsule wardrobe on a budget",
+    "priceRange": "$34–39",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "Shirt dress",
+        "to": "Cropped shirt and midi skirt",
+        "steps": [
+          "Undo the hidden button placket along the drop-waist seam.",
+          "Wear the bodice as a cropped shirt, open or knotted.",
+          "Wear the skirt on its own; it has its own finished waistband."
+        ]
+      },
+      {
+        "from": "Shirt dress",
+        "to": "Open duster layer",
+        "steps": [
+          "Unbutton the front placket fully.",
+          "Wear it open over jeans or a slip dress as a light layer."
+        ]
+      }
+    ],
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Organic cotton with a permanent crinkle finish, so it needs no ironing.",
+      "Made to be worn several ways, so one purchase covers more outfits and stays in rotation longer.",
+      "Adds about $3 to the price point; the price range already includes it."
+    ],
+    "confidence": 84
   },
   {
-    id: "b-09",
-    title: "Satin bias skirt with sheer overlay",
-    garmentType: "skirt",
-    style: "classy",
-    baseDescription: "A champagne satin bias midi skirt, pull-on with a flat elastic waist.",
-    signatureDetail: "A removable tulle overlay that snaps on for evening.",
-    whyNow: [
-      "Sheer layering peaking — removable overlay hedges the trend",
-      "Bias skirts consistent bestseller over 4 seasons",
+    "id": "top-sheer-shirt--back-lacing--ecru",
+    "title": "Sheer button-up shirt with exposed back lacing",
+    "garmentType": "top",
+    "style": "creative",
+    "baseDescription": "An oversized button-up shirt in recycled sheer mesh, made to layer over a bandeau, a slip dress or a fitted tank. Lead colourway: ecru.",
+    "signatureDetail": "Exposed ribbon lacing at the centre back, from the shoulder blades to the waist, that pulls in for a closer fit.",
+    "whyNow": [
+      "Exposed lacing: rising (momentum +50), projected at about 82/100 when this lands.",
+      "Also draws on sheer layering (peaking, -2).",
+      "Past pieces in sheer fabric sold 1.07× their category average and were rated 3.8/5 (20 products).",
+      "New to the range: no past top shares more than 2 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-sheer-layers"],
-    brandDnaFit: 80,
-    targetCustomer: "Women 25–45, occasion shoppers",
-    priceRange: "$34–42",
-    isMultiway: false,
-    isSustainable: false,
-    confidence: 64,
+    "linkedTrendIds": [
+      "trend-exposed-lacing",
+      "trend-sheer-layers"
+    ],
+    "brandDnaFit": 81,
+    "targetCustomer": "Festival and city dresser, 18–28, who likes layering",
+    "priceRange": "$19–24",
+    "isMultiway": false,
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Mesh knitted from recycled polyamide.",
+      "Adds about $2 to the price point; the price range already includes it."
+    ],
+    "confidence": 76
   },
   {
-    id: "b-10",
-    title: "Linen mini dress that unbuttons into a jacket",
-    garmentType: "dress",
-    style: "creative",
-    baseDescription: "A boxy, button-through linen mini dress with a short stand collar.",
-    signatureDetail: "A detachable lower half via hidden buttons — leaving a cropped shirt jacket.",
-    whyNow: [
-      "Recycled linen rising +59 momentum",
-      "Shirt-jackets top-10 in summer outerwear searches",
-      "Multiway messaging lifts click-through 31% in A/B ads",
+    "id": "jeans-zip-off--contrast-stitch--mid-blue",
+    "title": "Zip-off wide-leg jeans with tonal topstitching",
+    "garmentType": "jeans",
+    "style": "casual",
+    "baseDescription": "Wide-leg jeans in organic cotton denim with a zip concealed in a seam above the knee, so the lower legs come off and the jeans become long shorts. Lead colourway: mid-blue wash.",
+    "signatureDetail": "Heavy topstitching a few shades lighter than the base, tracing every seam to show off the cut.",
+    "whyNow": [
+      "A core piece rather than a trend bet: built on evergreen attributes (a wide leg and mid-blue wash) with steady interest around 55/100.",
+      "Past pieces in mid-blue wash sold 1.04× their category average and were rated 3.8/5 (12 products).",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past pair of jeans shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-deadstock-linen", "t-butter-yellow"],
-    brandDnaFit: 72,
-    targetCustomer: "Women 22–36, creative professionals",
-    priceRange: "$49–59",
-    isMultiway: true,
-    conversions: [
-      { from: "Mini dress", to: "Cropped shirt jacket", steps: ["Unbutton hidden waist band", "Detach lower skirt panel", "Wear open over a tank"] },
-      { from: "Mini dress", to: "Mini skirt", steps: ["Detach lower panel", "Button panel ends together", "Wear at waist"] },
+    "linkedTrendIds": [],
+    "brandDnaFit": 89,
+    "targetCustomer": "Student or traveller, 18–30, packing light for changing weather",
+    "priceRange": "$39–44",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "Full-length wide-leg jeans",
+        "to": "Bermuda shorts",
+        "steps": [
+          "Open the zip hidden in the seam above each knee.",
+          "Remove both lower legs; the zip tape is finished to sit flat as a hem."
+        ]
+      },
+      {
+        "from": "Bermuda shorts",
+        "to": "Full-length jeans",
+        "steps": [
+          "Line up each lower leg using the matching seam markers.",
+          "Close both zips; the seam reads as a design line."
+        ]
+      }
     ],
-    isSustainable: true,
-    sustainabilityNotes: [
-      "Recycled linen blend",
-      "Two garments from one fabric allocation",
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Organic cotton denim finished with a low-water wash.",
+      "Made to be worn several ways, so one purchase covers more outfits and stays in rotation longer.",
+      "Adds about $2 to the price point; the price range already includes it."
     ],
-    confidence: 75,
+    "confidence": 78
   },
   {
-    id: "b-11",
-    title: "Fitted baby tee with lace-up shoulder",
-    garmentType: "top",
-    style: "casual",
-    baseDescription: "A shrunken-fit cotton jersey baby tee with a slightly cropped length.",
-    signatureDetail: "A single shoulder seam opened and laced with a skinny satin ribbon.",
-    whyNow: [
-      "Baby tees a high-volume staple for Gen Z",
-      "Lace-up detailing still converts strongly despite peaking",
+    "id": "jeans-straight--statement-button--black",
+    "title": "High-rise straight-leg jeans with a sculpted waist button",
+    "garmentType": "jeans",
+    "style": "classy",
+    "baseDescription": "High-rise straight-leg jeans in organic cotton denim with a clean front, a long inseam and a pressed centre crease. Lead colourway: black.",
+    "signatureDetail": "A single oversized sculpted shank button at the waist in brushed metal.",
+    "whyNow": [
+      "A core piece rather than a trend bet: built on evergreen attributes (a straight leg and black) with steady interest around 56/100.",
+      "Fits the classy core of the range at $34–39, inside the jeans price band (brand fit 86/100).",
+      "New to the range: no past pair of jeans shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-corset-lace", "t-bow-detail"],
-    brandDnaFit: 90,
-    targetCustomer: "Women 16–26, high-frequency shoppers",
-    priceRange: "$14–19",
-    isMultiway: false,
-    isSustainable: false,
-    confidence: 79,
+    "linkedTrendIds": [],
+    "brandDnaFit": 86,
+    "targetCustomer": "Smart-casual dresser, 22–40, who wears jeans to work",
+    "priceRange": "$34–39",
+    "isMultiway": false,
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Organic cotton denim finished with a low-water wash.",
+      "Adds about $2 to the price point; the price range already includes it."
+    ],
+    "confidence": 79
   },
   {
-    id: "b-12",
-    title: "Wide jeans that convert into a midi skirt",
-    garmentType: "jeans",
-    style: "creative",
-    baseDescription: "Relaxed wide-leg jeans in light-wash denim with a low, slouchy rise.",
-    signatureDetail: "A curved front-to-back zip along the inseam that opens the legs into a denim midi skirt.",
-    whyNow: [
-      "Denim midi skirts up 74% in search",
-      "Wide-leg base keeps proven fit while adding novelty",
-      "Highest 'save for later' rate in concept testing (12%)",
+    "id": "skirt-wrap-multi--statement-button--powder-blue",
+    "title": "Multiway wrap skirt with a sculpted side button",
+    "garmentType": "skirt",
+    "style": "creative",
+    "baseDescription": "A long wrap skirt in organic crinkled cotton with extra-long waist ties, cut wide enough to wear as a halter dress. Lead colourway: powder blue.",
+    "signatureDetail": "One oversized sculpted button at the side waist, fastening an overlapped panel.",
+    "whyNow": [
+      "Crinkle texture: rising (momentum +21), projected at about 71/100 when this lands.",
+      "Also draws on powder blue (rising, +30).",
+      "Convertible pieces in the history sold 1.11× their category average, with 6 percentage points fewer returns.",
+      "New to the range: no past skirt shares more than 3 of its 5 core attributes."
     ],
-    linkedTrendIds: ["t-barrel-leg"],
-    brandDnaFit: 70,
-    targetCustomer: "Women 20–32, trend-curious, values versatility",
-    priceRange: "$49–59",
-    isMultiway: true,
-    conversions: [
-      { from: "Wide jeans", to: "Denim midi skirt", steps: ["Open inseam zip fully", "Re-zip into centre panel", "Smooth front pleat"] },
-      { from: "Wide jeans", to: "Split-front skirt", steps: ["Open inseam zip", "Leave front unzipped to knee"] },
+    "linkedTrendIds": [
+      "trend-crinkle-texture",
+      "trend-powder-blue"
     ],
-    isSustainable: false,
-    confidence: 66,
-  },
+    "brandDnaFit": 80,
+    "targetCustomer": "Holiday and occasion dresser, 20–35, who wants one piece to pack",
+    "priceRange": "$29–34",
+    "isMultiway": true,
+    "conversions": [
+      {
+        "from": "Wrap midi skirt",
+        "to": "Halter dress",
+        "steps": [
+          "Wrap the skirt around the body just under the arms.",
+          "Cross the long ties at the front.",
+          "Tie them behind the neck."
+        ]
+      },
+      {
+        "from": "Wrap midi skirt",
+        "to": "Strapless dress",
+        "steps": [
+          "Wrap the waistband around the bust.",
+          "Take the ties round the waist and knot them at the side."
+        ]
+      }
+    ],
+    "isSustainable": true,
+    "sustainabilityNotes": [
+      "Organic cotton with a permanent crinkle finish, so it needs no ironing.",
+      "Made to be worn several ways, so one purchase covers more outfits and stays in rotation longer.",
+      "Adds about $3 to the price point; the price range already includes it."
+    ],
+    "confidence": 83
+  }
 ];
